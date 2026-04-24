@@ -11,7 +11,6 @@ require('dotenv').config({ path: __dirname + '/.env' });
 const app = express();
 
 // Middleware
-const cors = require("cors");
 
 app.use(cors({
   origin: "*"
