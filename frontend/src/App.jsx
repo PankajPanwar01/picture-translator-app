@@ -6,7 +6,10 @@ import TodoList from './components/TodoList';
 import HistoryPanel from './components/HistoryPanel';
 import { Languages, Sparkles, Sun, Moon } from 'lucide-react';
 
-// Language Mapping
+
+const API_URL = "https://picture-translator-app-1.onrender.com";
+
+
 const langMap = {
   "Auto Detect": "auto",
   "English": "en",
@@ -39,7 +42,7 @@ function App() {
     }
   }, [darkMode]);
 
-  // 🔥 FIXED TRANSLATE FUNCTION
+  // 🔥 UPDATED TRANSLATE FUNCTION
   const handleTranslate = async (file) => {
     if (!file) {
       toast.error("Please upload an image first");
@@ -54,7 +57,7 @@ function App() {
     formData.append("targetLanguage", langMap[targetLang]);
 
     try {
-      const response = await fetch("http://localhost:5000/api/translate-image", {
+      const response = await fetch(`${API_URL}/api/translate-image`, {
         method: "POST",
         body: formData,
       });
